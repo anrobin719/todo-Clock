@@ -1,13 +1,8 @@
 body{
-    height: 100vh;
     background-repeat: no-repeat;
-    background-image: linear-gradient(to bottom right, #ee5253, #5f27cd);
-    background-size: cover;
     font-family: montserrat, sans-serif;
     color: white;
-
     overflow: hidden;
-
 }
 
 #container{
@@ -23,17 +18,17 @@ h1{
 
     font-size: 120px;
     text-align: center;
-    letter-spacing: 5px;
-    color: white;
+    letter-spacing: 5px; 
+    
 }
 
 input{
     width: 340px;
     height: 50px;
-    background-color: rgba(0,0,0,0);
+    background-color: rgba(255, 255, 255, 0);
     border: none;
     border-bottom: solid 2px rgba(255,255,255,0.5);
-    color: white;
+
     font-size: 32px;
     padding: 4px;
     text-align: center;
@@ -46,7 +41,7 @@ input:focus {
 }
 
 ::placeholder{
-    color: rgba(255,255,255,0.5);
+    color: rgba(255, 255, 255, 0.5);
     font-size: 32px;
     padding: 5px;
     text-align: center;
@@ -56,7 +51,6 @@ input:focus {
 
 .greetings{
     height: 50px;
-    color: white;
     font-size: 40px;
     text-align: center;
     padding: 5px;
@@ -66,13 +60,34 @@ input:focus {
     display: none;
     transition: 0.5s;
     margin: 0 auto;
+    text-align: center;
 }
 
 .showing{
     display: block;
+    margin: 0 auto;
 }
 
 .todoForm input {
     display: block;
-    margin: 0 auto;
+    margin: 16px auto 0;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.bgImage {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: cover;
+    z-index: -1;
+    animation: fadeIn 0.5s linear;
 }

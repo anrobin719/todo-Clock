@@ -4,7 +4,20 @@ const todoList = document.querySelector(".js_todoList");
 
 const TODOS_LIST = "todos";
 
-const todos = [];
+
+
+let todos = [];
+
+function deleteTodo(event) {
+    const btn = event.target;
+    const li = btn.parentElement;
+    todoList.removeChild(li);
+    const cleanTodos = todos.filter(function(todo) {
+        return todo.id !== parseInt(li.id);
+    });
+    todos = cleanTodos;
+    saveTodos();
+}
 
 function saveTodos() {
     localStorage.setItem(TODOS_LIST, JSON.stringify(todos));
@@ -16,6 +29,7 @@ function paintTodo(text) {
    const span = document.createElement("span");
    const newId = todos.length + 1;
    delBtn.innerText = "x";
+   delBtn.addEventListener("click", deleteTodo)
    span.innerText = text;
    li.appendChild(span);
    li.appendChild(delBtn);
@@ -39,7 +53,7 @@ function handleSubmit(event) {
 function loadTodos() {
     const loadedTodos = localStorage.getItem(TODOS_LIST);
     if(loadedTodos !== null) {
-        const parsedTodos = JSON.parse(loadTodos);
+        const parsedTodos = JSON.parse(loadedTodos);
         parsedTodos.forEach(function(todo) {
             paintTodo(todo.text);
         });
