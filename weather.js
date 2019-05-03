@@ -31,7 +31,7 @@ function handleGeoSucces(position) {
 }
 
 function handleGeoError() {
-    console.log("Can't access geo locati on");
+    console.log("Can't access geo location");
 }
 
 
